@@ -8,7 +8,7 @@ DHT dht(DHTPIN, DHT11);
 
 const char* ssid = "pipipupu"; 
 const char* password = "12345876"; 
-const char* host = "192.168.0.100"; 
+const char* host = "http://192.168.0.100"; 
 String url = "/send/"; 
 
 float temperature, humidity;
@@ -50,11 +50,6 @@ void loop()
   WiFiClient client; 
   const int httpPort = 80; 
 
-  if (!client.connect(host, httpPort)) 
-  { 
-    Serial.println("connection failed"); 
-    return; 
-  } 
   Serial.print("Requesting URL: "); 
   Serial.println(url); 
   String postData = "Temperature: " + String(temperature) + "C\n" + "Humidity: " + String(humidity) + "%\n";
@@ -63,9 +58,13 @@ void loop()
 
   HTTPClient http; 
   http.begin(client, address); 
-  http.addHeader("Content-Type", "application/x-www-form-urlencoded"); 
-  auto httpCode = http.POST(postData); 
-  Serial.println(httpCode);  
+  http.addHeader("Content-Type", "application/json"); 
+  
+  Serial.println("{\"humidity\":\""+String(humidity)+"\",\"temperature\":\""+String(temperature)+"\",\"pressure\":\"0\"}");
+
+  int httpResponseCode = http.POST("{\"humidity\":\""+String(humidity)+"\",\"temperature\":\""+String(temperature)+"\",\"pressure\":\"0\"}");
+   
+  Serial.println(httpResponseCode);  
   String payload = http.getString(); 
   Serial.println(payload); 
   http.end(); 
