@@ -8,7 +8,7 @@ DHT dht(DHTPIN, DHT11);
 
 const char* ssid = "pipipupu"; 
 const char* password = "12345876"; 
-const char* host = "192.168.0.100"; //edit the host adress, ip address etc. 
+const char* host = "192.168.0.100"; 
 String url = "/send/"; 
 
 float temperature, humidity;
@@ -48,15 +48,15 @@ void loop()
   Serial.println(host); 
 
   WiFiClient client; 
-  const int httpPort = 8000; 
+  const int httpPort = 80; 
 
   if (!client.connect(host, httpPort)) 
   { 
-  Serial.println("connection failed"); 
-  return; 
+    Serial.println("connection failed"); 
+    return; 
   } 
   Serial.print("Requesting URL: "); 
-  Serial.println(url); //Post Data 
+  Serial.println(url); 
   String postData = "Temperature: " + String(temperature) + "C\n" + "Humidity: " + String(humidity) + "%\n";
   Serial.println(postData); 
   String address = host + url; 
