@@ -27,5 +27,3 @@ class WeatherForecastView(View):
                 "metrics": metrics,
             },
         )
-
- 

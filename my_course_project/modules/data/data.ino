@@ -70,10 +70,8 @@ void loop()
   HTTPClient http; 
   http.begin(client, address); 
   http.addHeader("Content-Type", "application/json"); 
-  
-  Serial.println("{\"humidity\":\""+String(humidity)+"\",\"temperature\":\""+String(temperature)+"\",\"pressure\":\"0\"}");
 
-  int httpResponseCode = http.POST("{\"humidity\":\""+String(humidity)+"\",\"temperature\":\""+String(temperature)+"\",\"pressure\":\"0\"}");
+  int httpResponseCode = http.POST("{\"humidity\":\""+String(humidity)+"\",\"temperature\":\""+String(temperature)+"\",\"pressure\":\""+String(pressure)+"\"}");
    
   Serial.println(httpResponseCode);  
   String payload = http.getString(); 
