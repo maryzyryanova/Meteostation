@@ -20,7 +20,7 @@
 
             .rectangle{
                 width: 80%;
-                height: 80%;
+                height: 300px;
                 margin: auto;
                 border-radius: 10px;
                 background: white;
@@ -35,6 +35,14 @@
     </head>
 
     <body>
+
+        <div id="current_date_time"></div>
+        <script type="text/javascript">
+            setInterval(function () {
+                document.getElementById('current_date_time').innerHTML = date_time();
+            }, 1000);
+        </script>
+
         <div class="column_1">
             <div class="rectangle text">
                 <p>Temperature: {{metrics.temperature}}&deg;C</p>
