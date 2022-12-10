@@ -21,7 +21,10 @@ class WeatherForecastView(View):
 
     def get(self, request):
         metrics = Metrics.objects.all().order_by("-datetime")[0]
-        pwsw_url = "http://www.pwsweather.com/pwsupdate/pwsupdate.php?"
-        pwsw_creds = "ID=" + "1921680100" + "&PASSWORD=" + "7417f92d9a1ec0beffac2ce0b939f66d"
-        response = request.get(f'{pwsw_url}{pwsw_creds}{metrics}')
-        return response.content
+        return render(
+            request,
+            self.template_name,
+            {
+                "metrics": metrics,
+            },
+        )
