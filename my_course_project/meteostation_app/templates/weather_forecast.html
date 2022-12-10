@@ -12,6 +12,8 @@
         padding: 10px; /* внутренние отступы */
     }
     .box-init {
+        max-width: 100%; 
+        max-height: 100%;
         font-size: larger; /* размер шрифта */
         color: #fff; /* цвет текста */
         border-radius: 5px; /* скругление углов */
@@ -35,9 +37,7 @@
 <div class="grid-init grid">
     <div class="box-init box">
         <p>Temperature: {{metrics.temperature}}</p>
-        <br/>
         <p>Pressure: {{metrics.pressure}}</p>
-        <br/>
         <p>Humidity: {{metrics.humidity}}</p>
     </div>
     <div class="box-init box">
