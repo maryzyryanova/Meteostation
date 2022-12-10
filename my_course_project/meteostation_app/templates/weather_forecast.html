@@ -9,24 +9,40 @@
             .column_1{
                 width: 50%;
                 min-height: 150px;
-                float: right;
+                float: left;
             }
 
             .column_2{
                 width: 50%;
                 min-height: 150px;
-                float: left;
+                float: right;
+            }
+
+            .rectangle{
+                width: 45%;
+                height: 45%;
+                margin: auto;
+                
+                background: white;
+            }
+
+            .text{
+                text-align: center;
+                line-height: 50px;
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.26), 0 4px 12px rgba(0, 0, 0, 0.31);
             }
         </style> 
     </head>
 
     <body>
         <div class="column_1">
-            <p>Temperature: {{metrics.temperature}}&deg;C</p>
-            <p>Pressure: {{metrics.pressure}} Pa</p>
-            <p>Humidity: {{metrics.humidity}}%</p>
+            <div class="rectangle text">
+                <p>Temperature: {{metrics.temperature}}&deg;C</p>
+                <p>Pressure: {{metrics.pressure}} Pa</p>
+                <p>Humidity: {{metrics.humidity}}%</p>
+            </div>
         </div>
-
+        
         <div class="column_2">
             graphics
         </div>
