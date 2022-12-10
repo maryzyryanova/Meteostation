@@ -19,7 +19,7 @@ class WeatherForecastView(View):
     template_name = "weather_forecast.html"
 
     def get(self, request):
-        metrics = Metrics.objects.all().order_by("-datetime")[:0]
+        metrics = Metrics.objects.all().order_by("-datetime")[0]
         return render(
             request,
             self.template_name,
