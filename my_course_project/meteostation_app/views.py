@@ -1,6 +1,9 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from .serializer import MetricsSerializer
+from django.views import View
+from .models import Metrics
+from django.shortcuts import render
 
 class MetricsView(generics.GenericAPIView):
     serializer_class = MetricsSerializer
@@ -11,3 +14,18 @@ class MetricsView(generics.GenericAPIView):
             serializer.save()
             return Response(data = "OK", status = 201)
         return Response(data = "ERROR", status = 400)
+
+class WeatherForecastView(View):
+    template_name = "weather_forecast.html"
+
+    def get(self, request):
+        metrics = Metrics.objects.all().order_by("-datetime")[:0]
+        return render(
+            request,
+            self.template_name,
+            {
+                "metrics": metrics,
+            },
+        )
+
+ 
