@@ -5,12 +5,28 @@
             body{
                 background-color: ghostwhite;
             }
+
+            .column_1{
+                width: 50%;
+                min-height: 150px;
+            }
+
+            .column_2{
+                width: 50%;
+                min-height: 150px
+            }
         </style> 
     </head>
 
     <body>
-        <p>Temperature: {{metrics.temperature}}</p>
-        <p>Pressure: {{metrics.pressure}}</p>
-        <p>Humidity: {{metrics.humidity}}</p>
+        <div class="column_1">
+            <p>Temperature: {{metrics.temperature}}&deg;C</p>
+            <p>Pressure: {{metrics.pressure}} Pa</p>
+            <p>Humidity: {{metrics.humidity}}%</p>
+        </div>
+
+        <div class="column_2">
+
+        </div>
     </body>
 </html>
