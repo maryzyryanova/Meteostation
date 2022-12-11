@@ -132,14 +132,14 @@
                     {% for item in plot_data %}
                         {% if previous %}
                             <tr>
-                                <td style="--start: previous; --size: item.temperature"> 
+                                <td style="--start: {{previous}}; --size: {{item.temperature}}"> 
                                     <span class="data"> 
                                         {{ item.temperature }} 
                                     </span> 
                                 </td> 
                             </tr>
-                            {% define item.temperature as previous %}
                         {% endif %}
+                        {% define item.temperature as previous %}
                     {% endfor %}                    
                 </tbody>
             </table>
