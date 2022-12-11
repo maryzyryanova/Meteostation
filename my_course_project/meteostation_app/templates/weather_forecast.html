@@ -127,8 +127,8 @@
                 <caption>Temperature</caption>
                 <tbody>
                     var previous
-                    {% for var item in plot_data %}
-                        var t = item.temperature
+                    {% for var item in plot_data.temperature %}
+                        var t = item
                         {% if previous != 0 %}
                         <tr>
                             <td style="--start: {{previous}}; --size: {{t}}"> <span class="data"> {{t}} </span> </td> 
