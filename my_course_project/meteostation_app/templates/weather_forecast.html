@@ -41,6 +41,12 @@
             font-family: Georgia, serif;              
         }
 
+        .text{
+            padding-left: 10px;
+            font-family: Georgia, serif;
+            font-size: 30px;
+        }
+
         .picture{
             width: 30px;
             padding-left: 25px;
@@ -60,7 +66,9 @@
                 <div class="text_temperature">
                     {{metrics.temperature}}&deg;C
                 </div>
-                <img class="picture" src="https://cdn-icons-png.flaticon.com/512/8171/8171960.png"/> {{metrics.pressure}} Pa
+                <div class="text">
+                    <img class="picture" src="https://cdn-icons-png.flaticon.com/512/8171/8171960.png"/> {{metrics.pressure}} Pa
+                </div>
                 <p>Humidity: {{metrics.humidity}}%</p>
             </div>
         </div>
