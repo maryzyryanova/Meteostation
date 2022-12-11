@@ -131,7 +131,7 @@
                         var t = item.temperature
                         {% if previous != 0 %}
                             <tr>
-                                <td style="--start: {{previous}}; --size: {{t}}"> <span class="data"> {{t}} </span> </td> 
+                                <td style="--start: previous; --size: t"> <span class="data"> {{t}} </span> </td> 
                             </tr>
                         {% endif %}
                         previous = t
