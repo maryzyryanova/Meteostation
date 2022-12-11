@@ -136,7 +136,7 @@
                                 </td> 
                             </tr>
                         {% else %}
-                            previous = item.temperature
+                            {% previous = item.temperature %}
                         {% endif %}
                     {% endfor %}                    
                 </tbody>
