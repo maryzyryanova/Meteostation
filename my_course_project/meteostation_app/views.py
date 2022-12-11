@@ -17,7 +17,7 @@ class MetricsView(generics.GenericAPIView):
         return Response(data = "ERROR", status = 400)
 
 class WeatherForecastView(View):
-    template_name = "weather_forecast.html"
+    template_name = "html/weather_forecast.html"
 
     def get(self, request):
         metrics = Metrics.objects.all().order_by("-datetime")[0]
