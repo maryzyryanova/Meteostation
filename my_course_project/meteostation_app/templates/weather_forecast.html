@@ -127,7 +127,7 @@
                 <caption>Temperature</caption>
                 <tbody>
                     var previous
-                    {% for var item in plot_data.temperature %}
+                    {% for var item in plot_data %}
                         var t = item
                         {% if previous != 0 %}
                         <tr>
