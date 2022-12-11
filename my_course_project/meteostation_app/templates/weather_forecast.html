@@ -40,6 +40,10 @@
             font-size: 100px;
             font-family: Georgia, serif;              
         }
+
+        .picture{
+            width: 10px;
+        }
     </style>
 
     <div id="wrap">
@@ -54,8 +58,7 @@
                 <div class="text_temperature">
                     {{metrics.temperature}}&deg;C
                 </div>
-                <img src="https://cdn-icons-png.flaticon.com/512/8171/8171960.png"/>
-                {{metrics.pressure}} Pa
+                <img class="picture" src="https://cdn-icons-png.flaticon.com/512/8171/8171960.png"/>{{metrics.pressure}} Pa
                 <p>Humidity: {{metrics.humidity}}%</p>
             </div>
         </div>
