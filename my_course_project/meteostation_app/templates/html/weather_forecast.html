@@ -1,8 +1,8 @@
 {% load define_action %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
 
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
     <style>
         header{
             width: 100%;
@@ -132,7 +132,7 @@
         </div>
         
         <div class="column_2">
-            <table class="charts-css line show-heading">
+            <table class="charts-css line show-heading show-4-secondary-axes" id="my-chart">
                 <caption>Temperature</caption>
                 <tbody>
                     {% for item in plot_data %}
