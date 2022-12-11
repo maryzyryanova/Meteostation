@@ -21,10 +21,12 @@ class WeatherForecastView(View):
 
     def get(self, request):
         metrics = Metrics.objects.all().order_by("-datetime")[0]
+        plot_data = Metrics.objects.all().order_by("-datetime")[:1000]
         return render(
             request,
             self.template_name,
             {
                 "metrics": metrics,
+                "plot_data": plot_data,
             },
         )

@@ -64,8 +64,8 @@
 
         .time{  
             width: 45%;
-            text-align: right;
-            font-size: 75px;
+            text-align: center;
+            font-size: 50px;
             float: right;
         }
     </style>
@@ -123,7 +123,21 @@
         </div>
         
         <div class="column_2">
-            graphics
+            <table class="charts-css line">
+                <caption>Temperature</caption>
+                <tbody>
+                    var previous
+                    {% for var item in plot_data %}
+                        var t = item.temperature
+                        {% if previous != 0 %}
+                        <tr>
+                            <td style="--start: {{previous}}; --size: {{t}}"> <span class="data"> {{t}} </span> </td> 
+                        </tr>
+                        {% endif %}
+                        previous = t
+                    % endfor %}                    
+                </tbody>
+            </table>
         </div>
     </body>
 </html>
