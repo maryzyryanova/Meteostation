@@ -1,3 +1,5 @@
+{% load define_action %}
+
 <!DOCTYPE html>
 <html>
     <style>
@@ -135,7 +137,7 @@
                                     </span> 
                                 </td> 
                             </tr>
-                            {{ previous = item.temperature }}
+                            {% define item.temperature as previous %}
                         {% endif %}
                     {% endfor %}                    
                 </tbody>
