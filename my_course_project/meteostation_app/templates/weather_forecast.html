@@ -123,18 +123,20 @@
         </div>
         
         <div class="column_2">
-            <table class="charts-css line">
+            <table class="charts-css line show-heading">
                 <caption>Temperature</caption>
                 <tbody>
-                    var previous
                     {% for item in plot_data %}
-                        var t = item.temperature
-                        {% if previous != 0 %}
+                        {% if previous != null %}
                             <tr>
-                                <td style="--start: previous; --size: t"> <span class="data"> {{t}} </span> </td> 
+                                <td style="--start: previous; --size: item.temperature"> 
+                                    <span class="data"> 
+                                        {{ item.temperature }} 
+                                    </span> 
+                                </td> 
                             </tr>
                         {% endif %}
-                        previous = t
+                        previous = item.temperature
                     {% endfor %}                    
                 </tbody>
             </table>
