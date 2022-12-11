@@ -71,6 +71,12 @@
             font-size: 50px;
             float: right;
         }
+
+        #my-chart.line {
+            height: 200px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
     </style>
 
     <script type="text/javascript">
@@ -126,13 +132,13 @@
         </div>
         
         <div class="column_2">
-            <table class="charts-css line show-heading">
+            <table class="charts-css line show-heading" id="my-chart">
                 <caption>Temperature</caption>
                 <tbody>
                     {% for item in plot_data %}
                         {% if previous %}
                             <tr>
-                                <td style="--start: {{previous}}; --size: {{item.temperature}}"> 
+                                <td style="--start: previous; --size: item.temperature"> 
                                     <span class="data"> 
                                         {{ item.temperature }} 
                                     </span> 
