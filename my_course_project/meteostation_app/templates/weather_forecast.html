@@ -70,6 +70,12 @@
         }
     </style>
 
+    <script type="text/javascript">
+        setInterval(function () {
+            document.getElementById('current_date_time_block').innerHTML = date_time();
+        }, 1000);
+    </script>
+
     <div id="wrap">
         <header>
             <div class="city">
@@ -77,7 +83,7 @@
             </div>
 
             <div class="time">
-                something
+                <div id="current_date_time_block"></div>
             </div>
         </header>
     </div>
