@@ -73,7 +73,7 @@
         }
 
         #my-chart.line {
-            height: 200px;
+            height: 50px;
             max-width: 400px;
             margin: 0 auto;
         }
@@ -138,7 +138,7 @@
                     {% for item in plot_data %}
                         {% if previous %}
                             <tr>
-                                <td style="--start: {{previous}}; --size: {{item.temperature}}; --color: blue;"> 
+                                <td style="--start: {{previous}}; --size: {{item.temperature}}; --color: rgba(237, 150, 237, 0.742);"> 
                                     <span class="data"> 
                                         {{item.temperature}} 
                                     </span> 
