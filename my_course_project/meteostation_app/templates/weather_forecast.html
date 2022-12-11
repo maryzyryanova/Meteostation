@@ -127,7 +127,7 @@
                 <caption>Temperature</caption>
                 <tbody>
                     {% for item in plot_data %}
-                        {% if previous != null %}
+                        {% if previous %}
                             <tr>
                                 <td style="--start: previous; --size: item.temperature"> 
                                     <span class="data"> 
@@ -135,8 +135,9 @@
                                     </span> 
                                 </td> 
                             </tr>
+                        {% else %}
+                            previous = item.temperature
                         {% endif %}
-                        previous = item.temperature
                     {% endfor %}                    
                 </tbody>
             </table>
