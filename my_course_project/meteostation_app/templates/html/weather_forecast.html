@@ -82,7 +82,7 @@
         }
 
         #my-chart caption {
-            font-size: 1rem;
+            font-size: 3rem;
             font-weight: bold;
             line-height: 1.25rem;
         }
@@ -156,6 +156,44 @@
                 </tr>
                 {% endif %}
                 {% define item.temperature as previous %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <br/>
+        <table class="charts-css area show-heading show-4-secondary-axes" id="my-chart">
+            <caption>Humidity</caption>
+            <tbody>
+                {% for item in plot_data %}
+                {% if previous %}
+                <tr>
+                    <td
+                        style="--start: calc({{previous}} / 100); --size: calc({{item.humidity}} / 100); --color: rgba(237, 150, 237, 0.742);">
+                        <span class="data">
+                            {{item.temperature}}
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% define item.humidity as previous %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <br/>
+        <table class="charts-css area show-heading show-4-secondary-axes" id="my-chart">
+            <caption>Pressure</caption>
+            <tbody>
+                {% for item in plot_data %}
+                {% if previous %}
+                <tr>
+                    <td
+                        style="--start: calc({{previous}} / 100000); --size: calc({{item.pressure}} / 100000); --color: rgba(237, 150, 237, 0.742);">
+                        <span class="data">
+                            {{item.pressure}}
+                        </span>
+                    </td>
+                </tr>
+                {% endif %}
+                {% define item.pressure as previous %}
                 {% endfor %}
             </tbody>
         </table>
