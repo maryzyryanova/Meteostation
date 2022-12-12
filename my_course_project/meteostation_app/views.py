@@ -21,7 +21,7 @@ class WeatherForecastView(View):
 
     def get(self, request):
         metrics = Metrics.objects.all().order_by("-datetime")[0]
-        plot_data = Metrics.objects.all().order_by("datetime")[:6]
+        plot_data = Metrics.objects.all().order_by("-datetime")[:6]
         return render(
             request,
             self.template_name,
