@@ -20,7 +20,7 @@ const char* password = "12345876";
 const char* host = "http://192.168.0.100"; 
 String url = "/send/"; 
 
-float temperature, humidity, pressure;
+int temperature, humidity, pressure;
 
 void setup() 
 { 
@@ -51,9 +51,9 @@ void setup()
 void loop() 
 { 
   delay(5000); 
-  temperature = dht.readTemperature(); 
-  humidity = dht.readHumidity();
-  pressure = bmp280.readPressure();
+  temperature = (int)dht.readTemperature(); 
+  humidity = (int)dht.readHumidity();
+  pressure = (int)(bmp280.readPressure()*0.007501);
 
   Serial.print("connecting to "); 
   Serial.println(host); 
@@ -63,7 +63,7 @@ void loop()
 
   Serial.print("Requesting URL: "); 
   Serial.println(url); 
-  String postData = "Temperature: " + String(temperature) + "C\n" + "Humidity: " + String(humidity) + "%\n" + "Pressure: " + String(pressure) + " Pa\n";
+  String postData = "Temperature: " + String(temperature) + "C\n" + "Humidity: " + String(humidity) + "%\n" + "Pressure: " + String(pressure) + " mmhg\n";
   Serial.println(postData); 
   String address = host + url; 
 
