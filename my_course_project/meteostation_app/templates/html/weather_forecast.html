@@ -75,14 +75,14 @@
         }
 
         #my-chart.area {
-            height: 200px;
+            height: 250px;
             max-width: 400px;
             margin-top: 50px;
             --heading-size: 3rem;
         }
 
         #my-chart caption {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: bold;
             line-height: 1.25rem;
         }
@@ -169,7 +169,7 @@
                     <td
                         style="--start: calc({{previous}} / 100); --size: calc({{item.humidity}} / 100); --color: rgba(237, 150, 237, 0.742);">
                         <span class="data">
-                            {{item.temperature}}
+                            {{item.humidity}
                         </span>
                     </td>
                 </tr>
