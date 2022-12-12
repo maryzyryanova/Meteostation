@@ -74,15 +74,15 @@
             float: right;
         }
 
-        #my-chart.line {
-            height: 50px;
+        #my-chart.area {
+            height: 100px;
             max-width: 400px;
             margin: 0 auto;
         }
-        #my-chart.area {
-            height: 200px;
-            max-width: 400px;
-            margin: 0 auto;
+
+        .caption{
+            margin-top: 50px;
+            font-size: 30px;
         }
     </style>
 
@@ -139,7 +139,7 @@
 
     <div class="column_2">
         <table class="charts-css area show-heading show-4-secondary-axes" id="my-chart">
-            <caption>Temperature</caption>
+            <caption class="caption">Temperature</caption>
             <tbody>
                 {% for item in plot_data %}
                 {% if previous %}
